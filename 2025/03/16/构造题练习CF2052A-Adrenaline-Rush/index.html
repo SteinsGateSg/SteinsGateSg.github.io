@@ -6,15 +6,15 @@
   
   <title>构造题练习CF2052A.Adrenaline Rush | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="构造题练习$CF2052A.\ Adrenaline\ \ Rush$链接 思路 遇到一个逆序对要完成一次超车，遇到一个正序对可以看成先超车然后又被超回来了，所以完成了两次超车，最多的超车次数很好求  比较难的是按顺序求出超车的序列  一个想法是按照最终的序列从最后一辆车开始往前处理，找到它在最初序列中的位置一直向前超车，到达第一个，然后被别的车超到达它应该在的位置    为什么要从最后一个开始处">
+  <meta name="description" content="链接 思路 遇到一个逆序对要完成一次超车，遇到一个正序对可以看成先超车然后又被超回来了，所以完成了两次超车，最多的超车次数很好求  比较难的是按顺序求出超车的序列  一个想法是按照最终的序列从最后一辆车开始往前处理，找到它在最初序列中的位置一直向前超车，到达第一个，然后被别的车超到达它应该在的位置    为什么要从最后一个开始处理呢？这样处理其他车的时候就不用考虑它的影响了 过程中需要记录每一个车">
 <meta property="og:type" content="article">
 <meta property="og:title" content="构造题练习CF2052A.Adrenaline Rush">
 <meta property="og:url" content="http://example.com/2025/03/16/%E6%9E%84%E9%80%A0%E9%A2%98%E7%BB%83%E4%B9%A0CF2052A-Adrenaline-Rush/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="构造题练习$CF2052A.\ Adrenaline\ \ Rush$链接 思路 遇到一个逆序对要完成一次超车，遇到一个正序对可以看成先超车然后又被超回来了，所以完成了两次超车，最多的超车次数很好求  比较难的是按顺序求出超车的序列  一个想法是按照最终的序列从最后一辆车开始往前处理，找到它在最初序列中的位置一直向前超车，到达第一个，然后被别的车超到达它应该在的位置    为什么要从最后一个开始处">
+<meta property="og:description" content="链接 思路 遇到一个逆序对要完成一次超车，遇到一个正序对可以看成先超车然后又被超回来了，所以完成了两次超车，最多的超车次数很好求  比较难的是按顺序求出超车的序列  一个想法是按照最终的序列从最后一辆车开始往前处理，找到它在最初序列中的位置一直向前超车，到达第一个，然后被别的车超到达它应该在的位置    为什么要从最后一个开始处理呢？这样处理其他车的时候就不用考虑它的影响了 过程中需要记录每一个车">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-03-16T15:02:03.000Z">
-<meta property="article:modified_time" content="2025-03-16T15:03:01.689Z">
+<meta property="article:modified_time" content="2025-03-16T15:05:23.886Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -95,7 +95,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="构造题练习-CF2052A-Adrenaline-Rush"><a href="#构造题练习-CF2052A-Adrenaline-Rush" class="headerlink" title="构造题练习$CF2052A.\ Adrenaline\ \ Rush$"></a>构造题练习$CF2052A.\ Adrenaline\ \ Rush$</h1><p><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/2052/A">链接</a></p>
+        <p><a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/2052/A">链接</a></p>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><ol>
 <li><p>遇到一个逆序对要完成一次超车，遇到一个正序对可以看成先超车然后又被超回来了，所以完成了两次超车，最多的超车次数很好求</p>
 </li>
