@@ -14,6 +14,22 @@
   font-weight: 400;
 }
 
+@font-face {
+  font-family: "DailyLatin";
+  src: url("/fonts/inter-daily-600.ttf") format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "DailyLatin";
+  src: url("/fonts/inter-daily-700.ttf") format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
 #page-header.full_page {
   position: relative;
 }
@@ -158,5 +174,33 @@
   #body-wrap.post #content-inner {
     margin-top: -18px;
     padding-top: 6px;
+  }
+}
+
+.post-title,
+.article-title,
+.article-sort-item-title,
+.aside-list .title,
+.nav-page-title .site-name {
+  font-family: "DailyLatin", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  letter-spacing: 0;
+}
+
+#body-wrap.post #page-header .post-title {
+  font-weight: 700;
+  line-height: 1.22;
+  text-wrap: balance;
+}
+
+#recent-posts .recent-post-item .article-title,
+#aside-content .aside-list .title,
+.article-sort-item-title {
+  font-weight: 700;
+  line-height: 1.32;
+}
+
+@media (max-width: 768px) {
+  #body-wrap.post #page-header .post-title {
+    font-size: 1.82rem;
   }
 }

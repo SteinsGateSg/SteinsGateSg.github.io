@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>每日一题 001 · ABC441 E：A &gt; B substring | 栗悟饭与龟波気功</title><meta name="author" content="栗悟饭与龟波気功"><meta name="copyright" content="栗悟饭与龟波気功"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="题目：ABC441 E：A &gt; B substring关键词：前缀和 &#x2F; 树状数组 &#x2F; 统计小于当前数的前缀核心：把 A&#x2F;B&#x2F;C 转成 1&#x2F;-1&#x2F;0，问题变成统计子区间和大于 0 的个数。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="每日一题 001 · ABC441 E：A &gt; B substring">
+<meta property="og:url" content="https://steinsgatesg.github.io/daily/001-abc441-e/index.html">
+<meta property="og:site_name" content="栗悟饭与龟波気功">
+<meta property="og:description" content="题目：ABC441 E：A &gt; B substring关键词：前缀和 &#x2F; 树状数组 &#x2F; 统计小于当前数的前缀核心：把 A&#x2F;B&#x2F;C 转成 1&#x2F;-1&#x2F;0，问题变成统计子区间和大于 0 的个数。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://steinsgatesg.github.io/image/daily-practice-top.webp">
+<meta property="article:published_time" content="2026-06-16T14:30:00.000Z">
+<meta property="article:modified_time" content="2026-06-16T02:46:09.717Z">
+<meta property="article:author" content="栗悟饭与龟波気功">
+<meta property="article:tag" content="前缀和">
+<meta property="article:tag" content="树状数组">
+<meta property="article:tag" content="计数">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://steinsgatesg.github.io/image/daily-practice-top.webp"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "每日一题 001 · ABC441 E：A > B substring",
+  "url": "https://steinsgatesg.github.io/daily/001-abc441-e/",
+  "image": "https://steinsgatesg.github.io/image/daily-practice-top.webp",
+  "datePublished": "2026-06-16T14:30:00.000Z",
+  "dateModified": "2026-06-16T02:46:09.717Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "栗悟饭与龟波気功",
+      "url": "https://steinsgatesg.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/image/sg.jpg"><link rel="canonical" href="https://steinsgatesg.github.io/daily/001-abc441-e/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '每日一题 001 · ABC441 E：A > B substring',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/hero-typography.css"><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background: linear-gradient(180deg, #f1e6d5 0%, #edf1ed 46%, #eef4f2 100%);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/image/sg.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"><i class="fa-fw fas fa-calendar-check"></i><span> 每日一题</span></a></li><li><a class="site-page child" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/"><i class="fa-fw fas fa-code"></i><span> 算法竞赛</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/image/daily-practice-top.webp);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">栗悟饭与龟波気功</span></a><a class="nav-page-title" href="/"><span class="site-name">每日一题 001 · ABC441 E：A &gt; B substring</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"><i class="fa-fw fas fa-calendar-check"></i><span> 每日一题</span></a></li><li><a class="site-page child" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/"><i class="fa-fw fas fa-code"></i><span> 算法竞赛</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">每日一题 001 · ABC441 E：A &gt; B substring</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-06-16T14:30:00.000Z" title="发表于 2026-06-16 22:30:00">2026-06-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-06-16T02:46:09.717Z" title="更新于 2026-06-16 10:46:09">2026-06-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/">算法竞赛</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/">每日一题</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><blockquote>
+<p><strong>题目</strong>：ABC441 E：A &gt; B substring<br><strong>关键词</strong>：前缀和 &#x2F; 树状数组 &#x2F; 统计小于当前数的前缀<br><strong>核心</strong>：把 <code>A/B/C</code> 转成 <code>1/-1/0</code>，问题变成统计子区间和大于 <code>0</code> 的个数。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>在一个只有 <code>A</code>, <code>B</code>, <code>C</code> 的长度为 <code>N</code> 的字符串中，求 <code>A</code> 出现次数严格大于 <code>B</code> 出现次数的子区间个数。</p>
+<h2 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h2><p>注意 <code>C</code> 除了占用位置完全没用，我们想迅速判断一个区间合不合法应该怎么办呢？</p>
+<p>最简单的办法：分别看 <code>A</code> 的数量和 <code>B</code> 的数量。</p>
+<p>但是这样需要看两个指标，要分别求两个前缀和，好像也看不出来什么。</p>
+<p>我们可以把字母转换成分数：</p>
+<ul>
+<li><code>A</code> $\rightarrow$ <code>1</code></li>
+<li><code>B</code> $\rightarrow$ <code>-1</code></li>
+<li><code>C</code> $\rightarrow$ <code>0</code></li>
+</ul>
+<p><strong>这样我们就只需要找子区间和大于 <code>0</code> 的区间个数就好了。</strong></p>
+<p>利用前缀和，对于区间 $[L, R]$，合法条件是：</p>
+<p>$$<br>pre[R] - pre[L - 1] &gt; 0 \rightarrow pre[R] &gt; pre[L - 1]<br>$$</p>
+<p>也就是要统计每个数左边有几个比它小的前缀和。这是一个经典问题，可以用<strong>树状数组</strong>，也可以用<strong>归并排序</strong>。</p>
+<p>这里用树状数组。注意前缀和可能出现负数，所以整体加一个偏移量。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>枚举每个前缀和 <code>pre[i]</code>：</p>
+<ol>
+<li>查询已经出现过的、小于 <code>pre[i]</code> 的数量</li>
+<li>加到答案里</li>
+<li>把当前 <code>pre[i]</code> 加入树状数组</li>
+</ol>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><details>
+<summary><font size="4" color="orange">代码</font></summary>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> endl <span class="string">&#x27;\n&#x27;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> int long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> lowbit(x) x &amp; -x</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> mod = <span class="number">998244353</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"><span class="type">int</span> n; <span class="type">int</span> d[maxn];</span><br><span class="line"><span class="type">int</span> tr[maxn];</span><br><span class="line"><span class="type">int</span> pre[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> pos, <span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(pos &lt;= maxn)</span><br><span class="line">    &#123;</span><br><span class="line">        tr[pos] += x;</span><br><span class="line">        pos += <span class="built_in">lowbit</span>(pos);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">sum</span><span class="params">(<span class="type">int</span> pos)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(pos)</span><br><span class="line">    &#123;</span><br><span class="line">        res += tr[pos];</span><br><span class="line">        pos -= <span class="built_in">lowbit</span>(pos);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::cin &gt;&gt; n; <span class="type">char</span> c;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) </span><br><span class="line">    &#123;</span><br><span class="line">        std::cin &gt;&gt; c;  </span><br><span class="line">        pre[i] = pre[i - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="string">&#x27;A&#x27;</span>) d[i] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="string">&#x27;B&#x27;</span>) d[i] = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="string">&#x27;C&#x27;</span>) d[i] = <span class="number">0</span>;</span><br><span class="line">        pre[i] += d[i];   </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i++) pre[i] += <span class="number">500001</span>;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> cur = pre[i];</span><br><span class="line">        ans += <span class="built_in">sum</span>(cur - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">add</span>(pre[i], <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    std::cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">signed</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    std::cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line">    <span class="type">int</span> <span class="type">_t</span> = <span class="number">1</span>; <span class="comment">// std::cin &gt;&gt; _t;</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="type">_t</span>--) <span class="built_in">solve</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://SteinsGateSg.github.io">栗悟饭与龟波気功</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://steinsgatesg.github.io/daily/001-abc441-e/">https://steinsgatesg.github.io/daily/001-abc441-e/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://SteinsGateSg.github.io" target="_blank">栗悟饭与龟波気功</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%BC%80%E5%92%8C/">前缀和</a><a class="post-meta__tags" href="/tags/%E6%A0%91%E7%8A%B6%E6%95%B0%E7%BB%84/">树状数组</a><a class="post-meta__tags" href="/tags/%E8%AE%A1%E6%95%B0/">计数</a></div><div class="post-share"><div class="social-share" data-image="/image/daily-practice-top.webp" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width no-desc" href="/2026/04/12/%E7%89%9B%E5%AE%A2%E5%91%A8%E8%B5%9BRound139/" title="牛客周赛Round139"><img class="cover" src="/image/Nowcode/nowcode139.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">牛客周赛Round139</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/image/sg.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">栗悟饭与龟波気功</div><div class="author-info-description">记录学习日常</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SteinsGateSg"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E6%84%8F"><span class="toc-number">1.</span> <span class="toc-text">题意</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%83%B3%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">想法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">4.</span> <span class="toc-text">代码</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/daily/001-abc441-e/" title="每日一题 001 · ABC441 E：A &gt; B substring"><img src="/image/daily-practice-top.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日一题 001 · ABC441 E：A &gt; B substring"/></a><div class="content"><a class="title" href="/daily/001-abc441-e/" title="每日一题 001 · ABC441 E：A &gt; B substring">每日一题 001 · ABC441 E：A &gt; B substring</a><time datetime="2026-06-16T14:30:00.000Z" title="发表于 2026-06-16 22:30:00">2026-06-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/12/%E7%89%9B%E5%AE%A2%E5%91%A8%E8%B5%9BRound139/" title="牛客周赛Round139"><img src="/image/Nowcode/nowcode139.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="牛客周赛Round139"/></a><div class="content"><a class="title" href="/2026/04/12/%E7%89%9B%E5%AE%A2%E5%91%A8%E8%B5%9BRound139/" title="牛客周赛Round139">牛客周赛Round139</a><time datetime="2026-04-12T12:52:46.000Z" title="发表于 2026-04-12 20:52:46">2026-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/06/%E7%89%9B%E5%AE%A2%E5%91%A8%E8%B5%9BRound138/" title="牛客周赛Round138"><img src="/image/Nowcode/nowcode138.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="牛客周赛Round138"/></a><div class="content"><a class="title" href="/2026/04/06/%E7%89%9B%E5%AE%A2%E5%91%A8%E8%B5%9BRound138/" title="牛客周赛Round138">牛客周赛Round138</a><time datetime="2026-04-06T10:12:59.000Z" title="发表于 2026-04-06 18:12:59">2026-04-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2025/03/16/%E6%9E%84%E9%80%A0%E9%A2%98%E7%BB%83%E4%B9%A0CF2052A-Adrenaline-Rush/" title="构造题练习 CF2052A.Adrenaline Rush"><img src="/image/Codeforces/cf2052A.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="构造题练习 CF2052A.Adrenaline Rush"/></a><div class="content"><a class="title" href="/2025/03/16/%E6%9E%84%E9%80%A0%E9%A2%98%E7%BB%83%E4%B9%A0CF2052A-Adrenaline-Rush/" title="构造题练习 CF2052A.Adrenaline Rush">构造题练习 CF2052A.Adrenaline Rush</a><time datetime="2025-03-16T15:02:03.000Z" title="发表于 2025-03-16 23:02:03">2025-03-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2026 By 栗悟饭与龟波気功</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'none',
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: true,
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
