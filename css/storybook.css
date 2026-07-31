@@ -595,6 +595,89 @@ kbd {
   border-left-color: var(--story-coral) !important;
 }
 
+/* Mathematics Daily */
+.math-daily-issue {
+  align-items: end;
+  border-bottom: 2px solid var(--story-ink);
+  border-top: 5px solid var(--story-teal);
+  display: grid;
+  gap: 8px 18px;
+  grid-template-columns: auto 1fr auto;
+  margin: 0 0 12px;
+  padding: 16px 4px 12px;
+}
+
+.math-daily-issue__eyebrow {
+  color: var(--story-coral);
+  font-family: "DailyLatin", sans-serif;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.math-daily-issue strong {
+  color: var(--story-ink);
+  font-family: "Noto Serif SC", "Source Han Serif SC", "Songti SC", serif;
+  font-size: 1.42rem;
+  font-weight: 700;
+}
+
+.math-daily-issue time {
+  color: var(--card-meta);
+  font-family: "DailyLatin", sans-serif;
+  font-size: 0.82rem;
+}
+
+#article-container .math-daily-source {
+  color: var(--card-meta);
+  font-size: 0.85rem;
+  margin: 0 0 28px;
+  text-align: right;
+}
+
+.math-daily-answer {
+  align-items: center;
+  background: rgba(213, 168, 77, 0.13);
+  border-left: 6px solid var(--story-coral);
+  display: flex;
+  gap: 14px;
+  margin: 1.25em 0 1.7em;
+  padding: 14px 18px;
+}
+
+.math-daily-answer span {
+  color: var(--story-coral);
+  font-family: "DailyLatin", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.math-daily-answer strong {
+  color: var(--story-ink);
+  font-size: 1.08rem;
+}
+
+.math-daily-note {
+  background: rgba(108, 181, 171, 0.1);
+  border-left: 4px solid var(--story-teal);
+  color: var(--font-color);
+  margin: 1.4em 0;
+  padding: 0.9em 1.15em;
+}
+
+.math-daily-note--summary {
+  background: rgba(213, 168, 77, 0.12);
+  border-left-color: var(--story-mustard);
+  color: var(--story-ink);
+  font-weight: 600;
+}
+
+#article-container mjx-container[display="true"] {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.15em 0;
+}
+
 /* Archives, categories and tags */
 #archive .article-sort {
   border-left: 3px dashed rgba(47, 127, 125, 0.42);
@@ -760,6 +843,36 @@ kbd {
 
   .daily-issue strong {
     font-size: 1.42rem;
+  }
+
+  .math-daily-issue {
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .math-daily-issue__eyebrow {
+    grid-column: 1 / -1;
+  }
+
+  .math-daily-issue strong {
+    font-size: 1.18rem;
+    min-width: 0;
+  }
+
+  #article-container .math-daily-source {
+    margin-bottom: 22px;
+    text-align: left;
+  }
+
+  .math-daily-answer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 14px;
+  }
+
+  .math-daily-answer strong {
+    overflow-wrap: anywhere;
   }
 
   #footer-wrap {
