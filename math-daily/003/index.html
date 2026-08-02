@@ -1,0 +1,456 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>考研数学每日一题 003：可导、左右导数与连续 | 栗悟饭与龟波気功</title><meta name="author" content="栗悟饭与龟波気功"><meta name="copyright" content="栗悟饭与龟波気功"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#e9f0e7"><meta name="description" content="MATH DAILY   考研数学每日一题 · 003   2026.08.01   题目来源：武忠祥老师公众号每日一题  题目设函数 $f(x)$ 在 $x&#x3D;x_0$ 的某个邻域内有定义，判断下列命题中正确的个数。  $f’(x_0)$ 存在； $f’-(x_0)$、$f’+(x_0)$ 都存在； $\displaystyle\lim_{x\to x_0^-}f’(x)$、$\d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="考研数学每日一题 003：可导、左右导数与连续">
+<meta property="og:url" content="https://steinsgatesg.github.io/math-daily/003/index.html">
+<meta property="og:site_name" content="栗悟饭与龟波気功">
+<meta property="og:description" content="MATH DAILY   考研数学每日一题 · 003   2026.08.01   题目来源：武忠祥老师公众号每日一题  题目设函数 $f(x)$ 在 $x&#x3D;x_0$ 的某个邻域内有定义，判断下列命题中正确的个数。  $f’(x_0)$ 存在； $f’-(x_0)$、$f’+(x_0)$ 都存在； $\displaystyle\lim_{x\to x_0^-}f’(x)$、$\d">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://steinsgatesg.github.io/image/sg.jpg">
+<meta property="article:published_time" content="2026-08-01T15:50:00.000Z">
+<meta property="article:modified_time" content="2026-08-02T09:38:07.104Z">
+<meta property="article:author" content="栗悟饭与龟波気功">
+<meta property="article:tag" content="可导">
+<meta property="article:tag" content="左右导数">
+<meta property="article:tag" content="连续性">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://steinsgatesg.github.io/image/sg.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "考研数学每日一题 003：可导、左右导数与连续",
+  "url": "https://steinsgatesg.github.io/math-daily/003/",
+  "image": "https://steinsgatesg.github.io/image/sg.jpg",
+  "datePublished": "2026-08-01T15:50:00.000Z",
+  "dateModified": "2026-08-02T09:38:07.104Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "栗悟饭与龟波気功",
+      "url": "https://steinsgatesg.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/image/sg.jpg"><link rel="canonical" href="https://steinsgatesg.github.io/math-daily/003/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#171a2d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#e9f0e7')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '考研数学每日一题 003：可导、左右导数与连续',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/hero-typography.css"><link rel="stylesheet" href="/css/storybook.css"><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-color: #e9f0e7;"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/image/sg.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book-open"></i><span> 书架</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%80%83%E7%A0%94%E6%95%B0%E5%AD%A6/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"><i class="fa-fw fas fa-calculator"></i><span> 考研数学每日题</span></a></li><li><a class="site-page child" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"><i class="fa-fw fas fa-calendar-check"></i><span> 算法每日题</span></a></li><li><a class="site-page child" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/"><i class="fa-fw fas fa-code"></i><span> 算法竞赛</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">栗悟饭与龟波気功</span></a><a class="nav-page-title" href="/"><span class="site-name">考研数学每日一题 003：可导、左右导数与连续</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-book-open"></i><span> 书架</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/categories/%E8%80%83%E7%A0%94%E6%95%B0%E5%AD%A6/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"><i class="fa-fw fas fa-calculator"></i><span> 考研数学每日题</span></a></li><li><a class="site-page child" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/"><i class="fa-fw fas fa-calendar-check"></i><span> 算法每日题</span></a></li><li><a class="site-page child" href="/categories/%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B/"><i class="fa-fw fas fa-code"></i><span> 算法竞赛</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li></ul></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">考研数学每日一题 003：可导、左右导数与连续</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-08-01T15:50:00.000Z" title="发表于 2026-08-01 23:50:00">2026-08-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-08-02T09:38:07.104Z" title="更新于 2026-08-02 17:38:07">2026-08-02</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%80%83%E7%A0%94%E6%95%B0%E5%AD%A6/">考研数学</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%80%83%E7%A0%94%E6%95%B0%E5%AD%A6/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/">每日一题</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="container post-content" id="article-container"><div class="math-daily-issue">
+  <span class="math-daily-issue__eyebrow">MATH DAILY</span>
+  <strong>考研数学每日一题 · 003</strong>
+  <time datetime="2026-08-01">2026.08.01</time>
+</div>
+
+<p class="math-daily-source">题目来源：武忠祥老师公众号每日一题</p>
+
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>设函数 $f(x)$ 在 $x&#x3D;x_0$ 的某个邻域内有定义，判断下列命题中正确的个数。</p>
+<ol>
+<li>$f’(x_0)$ 存在；</li>
+<li>$f’<em>-(x_0)$、$f’</em>+(x_0)$ 都存在；</li>
+<li>$\displaystyle\lim_{x\to x_0^-}f’(x)$、$\displaystyle\lim_{x\to x_0^+}f’(x)$ 都存在；</li>
+<li>$\displaystyle\lim_{x\to x_0}f’(x)$ 存在。</li>
+</ol>
+<p>以上命题中，能保证 $f(x)$ 在 $x&#x3D;x_0$ 处连续的有（　）个。</p>
+<ul>
+<li>（A）1</li>
+<li>（B）2</li>
+<li>（C）3</li>
+<li>（D）4</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><div class="math-daily-answer">
+  <span>本题答案</span>
+  <strong>（B）2 个</strong>
+</div>
+
+<h2 id="判断思路"><a href="#判断思路" class="headerlink" title="判断思路"></a>判断思路</h2><p>四个命题都在提供导数信息，但关键要分清：这些信息是否直接约束了点值 $f(x_0)$。</p>
+
+<link rel="stylesheet" href="/thinkflow/thinkflow.css">
+
+<script src="/thinkflow/thinkflow.js"></script>
+
+<section class="tf-board" data-thinkflow aria-label="解题思维链">
+  <header class="tf-head">
+    <div class="tf-head-meta">
+      <span class="tf-kicker"><i aria-hidden="true"></i> THINK FLOW</span>
+      <span class="tf-count">4 条路径</span>
+    </div>
+    <h3>哪些导数信息能保证 x₀ 处连续？</h3>
+    <p>从条件出发，只保留决定对错的关键一步。</p>
+  </header>
+
+  <div class="tf-hub" aria-hidden="true">
+    <span>逐条判断</span>
+  </div>
+
+  <div class="tf-grid" role="list">
+    
+      <article class="tf-track is-correct" role="listitem" tabindex="0" data-tf-index="0">
+        <div class="tf-track-top">
+          <span class="tf-index">①</span>
+          <span class="tf-verdict" aria-label="判断：正确">
+            <b aria-hidden="true">✓</b>正确
+          </span>
+        </div>
+
+        <div class="tf-condition">
+          <span class="tf-step-label">条件</span>
+          <strong>f′(x₀) 存在</strong>
+        </div>
+
+        <div class="tf-route" aria-label="推理过程">
+          <div class="tf-node">
+            <span class="tf-node-dot" aria-hidden="true"></span>
+            <small>抓核心</small>
+            <p>点上的差商直接涉及 f(x₀)</p>
+          </div>
+          <div class="tf-route-line" aria-hidden="true"><i></i></div>
+          <div class="tf-node">
+            <span class="tf-node-dot" aria-hidden="true"></span>
+            <small>判断依据</small>
+            <p>可导必连续</p>
+          </div>
+        </div>
+        
+      </article>
+      <article class="tf-track is-correct" role="listitem" tabindex="0" data-tf-index="1">
+        <div class="tf-track-top">
+          <span class="tf-index">②</span>
+          <span class="tf-verdict" aria-label="判断：正确">
+            <b aria-hidden="true">✓</b>正确
+          </span>
+        </div>
+
+        <div class="tf-condition">
+          <span class="tf-step-label">条件</span>
+          <strong>左右导数都存在</strong>
+        </div>
+
+        <div class="tf-route" aria-label="推理过程">
+          <div class="tf-node">
+            <span class="tf-node-dot" aria-hidden="true"></span>
+            <small>抓核心</small>
+            <p>左右两侧分别接到点值</p>
+          </div>
+          <div class="tf-route-line" aria-hidden="true"><i></i></div>
+          <div class="tf-node">
+            <span class="tf-node-dot" aria-hidden="true"></span>
+            <small>判断依据</small>
+            <p>左连续加右连续推出连续</p>
+          </div>
+        </div>
+        
+        <details class="tf-detail">
+          <summary><span>补充 / 反例</span><i aria-hidden="true"></i></summary>
+          <div class="tf-detail-body">左右导数可以不相等；不相等时不可导，但仍连续，例如 f(x)=|x|。</div>
+        </details>
+      </article>
+      <article class="tf-track is-wrong" role="listitem" tabindex="0" data-tf-index="2">
+        <div class="tf-track-top">
+          <span class="tf-index">③</span>
+          <span class="tf-verdict" aria-label="判断：错误">
+            <b aria-hidden="true">×</b>错误
+          </span>
+        </div>
+
+        <div class="tf-condition">
+          <span class="tf-step-label">条件</span>
+          <strong>左右导函数极限都存在</strong>
+        </div>
+
+        <div class="tf-route" aria-label="推理过程">
+          <div class="tf-node">
+            <span class="tf-node-dot" aria-hidden="true"></span>
+            <small>抓核心</small>
+            <p>只控制去心邻域内的斜率</p>
+          </div>
+          <div class="tf-route-line" aria-hidden="true"><i></i></div>
+          <div class="tf-node">
+            <span class="tf-node-dot" aria-hidden="true"></span>
+            <small>判断依据</small>
+            <p>无法约束 f(x₀) 是否接上</p>
+          </div>
+        </div>
+        
+        <details class="tf-detail">
+          <summary><span>补充 / 反例</span><i aria-hidden="true"></i></summary>
+          <div class="tf-detail-body">令 x≠x₀ 时 f(x)=0，但单独取 f(x₀)=1；附近导数均为 0，函数却不连续。</div>
+        </details>
+      </article>
+      <article class="tf-track is-wrong" role="listitem" tabindex="0" data-tf-index="3">
+        <div class="tf-track-top">
+          <span class="tf-index">④</span>
+          <span class="tf-verdict" aria-label="判断：错误">
+            <b aria-hidden="true">×</b>错误
+          </span>
+        </div>
+
+        <div class="tf-condition">
+          <span class="tf-step-label">条件</span>
+          <strong>导函数的双侧极限存在</strong>
+        </div>
+
+        <div class="tf-route" aria-label="推理过程">
+          <div class="tf-node">
+            <span class="tf-node-dot" aria-hidden="true"></span>
+            <small>抓核心</small>
+            <p>本质仍是附近斜率的信息</p>
+          </div>
+          <div class="tf-route-line" aria-hidden="true"><i></i></div>
+          <div class="tf-node">
+            <span class="tf-node-dot" aria-hidden="true"></span>
+            <small>判断依据</small>
+            <p>仍然管不到点值 f(x₀)</p>
+          </div>
+        </div>
+        
+        <details class="tf-detail">
+          <summary><span>补充 / 反例</span><i aria-hidden="true"></i></summary>
+          <div class="tf-detail-body">与③使用同一个反例即可。</div>
+        </details>
+      </article>
+  </div>
+
+  <footer class="tf-summary">
+    <div>
+      <span>成立项</span>
+      <strong>①、②</strong>
+    </div>
+    <div class="tf-summary-answer">
+      <span>最终答案</span>
+      <strong class="tf-answer-value">B</strong>
+    </div>
+  </footer>
+</section>
+
+<div class="math-daily-note">
+点上的导数定义直接使用 $f(x_0)$，而导函数在去心邻域内的极限只描述附近的斜率。这是判断四个命题的核心区别。
+</div>
+
+<h2 id="一、可导为什么能推出连续"><a href="#一、可导为什么能推出连续" class="headerlink" title="一、可导为什么能推出连续"></a>一、可导为什么能推出连续</h2><p>若 $f’(x_0)$ 存在，则由导数定义，</p>
+<p>$$<br>\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}&#x3D;f’(x_0).<br>$$</p>
+<p>于是</p>
+<p>$$<br>f(x)-f(x_0)<br>&#x3D;(x-x_0)\frac{f(x)-f(x_0)}{x-x_0}.<br>$$</p>
+<p>当 $x\to x_0$ 时，右侧第一个因子趋于 $0$，第二个因子趋于有限值 $f’(x_0)$，所以</p>
+<p>$$<br>\lim_{x\to x_0}\bigl[f(x)-f(x_0)\bigr]&#x3D;0.<br>$$</p>
+<p>即</p>
+<p>$$<br>\lim_{x\to x_0}f(x)&#x3D;f(x_0).<br>$$</p>
+<p>因此，命题 ① 正确。</p>
+<h2 id="二、左右导数存在为什么也能推出连续"><a href="#二、左右导数存在为什么也能推出连续" class="headerlink" title="二、左右导数存在为什么也能推出连续"></a>二、左右导数存在为什么也能推出连续</h2><p>若左导数存在，则</p>
+<p>$$<br>\lim_{x\to x_0^-}\frac{f(x)-f(x_0)}{x-x_0}&#x3D;f’_-(x_0).<br>$$</p>
+<p>与上一节同理，可以推出</p>
+<p>$$<br>\lim_{x\to x_0^-}f(x)&#x3D;f(x_0),<br>$$</p>
+<p>即 $f$ 在 $x_0$ 处左连续。</p>
+<p>若右导数存在，同理可得</p>
+<p>$$<br>\lim_{x\to x_0^+}f(x)&#x3D;f(x_0),<br>$$</p>
+<p>即 $f$ 在 $x_0$ 处右连续。</p>
+<p>左右连续同时成立，因此</p>
+<p>$$<br>\lim_{x\to x_0}f(x)&#x3D;f(x_0).<br>$$</p>
+<p>所以命题 ② 正确。</p>
+<p>需要注意，左右导数只要求分别存在，并不要求二者相等。例如 $f(x)&#x3D;|x|$ 在 $x&#x3D;0$ 处左右导数分别为 $-1$ 和 $1$，函数不可导，但仍然连续。</p>
+<h2 id="三、附近导数的极限为什么不能约束点值"><a href="#三、附近导数的极限为什么不能约束点值" class="headerlink" title="三、附近导数的极限为什么不能约束点值"></a>三、附近导数的极限为什么不能约束点值</h2><p>命题 ③ 和命题 ④ 给出的都是 $f’(x)$ 在 $x_0$ 附近的极限信息。这里的 $f’(x)$ 只涉及 $x\ne x_0$ 时函数在附近各点的变化率，并没有直接使用 $f(x_0)$。</p>
+<p>构造反例：</p>
+<p>$$<br>f(x)&#x3D;<br>\begin{cases}<br>0, &amp; x\ne x_0,\[4pt]<br>1, &amp; x&#x3D;x_0.<br>\end{cases}<br>$$</p>
+<p>当 $x\ne x_0$ 时，在足够小且不跨过 $x_0$ 的邻域内，$f(x)$ 恒为 $0$，因此</p>
+<p>$$<br>f’(x)&#x3D;0.<br>$$</p>
+<p>所以</p>
+<p>$$<br>\lim_{x\to x_0^-}f’(x)&#x3D;0,<br>\qquad<br>\lim_{x\to x_0^+}f’(x)&#x3D;0,<br>$$</p>
+<p>并且</p>
+<p>$$<br>\lim_{x\to x_0}f’(x)&#x3D;0.<br>$$</p>
+<p>命题 ③、④ 中的导函数极限都存在。但是</p>
+<p>$$<br>\lim_{x\to x_0}f(x)&#x3D;0\ne1&#x3D;f(x_0),<br>$$</p>
+<p>所以 $f(x)$ 在 $x&#x3D;x_0$ 处不连续。</p>
+<p>因此，命题 ③、④ 都不能保证连续。</p>
+<h2 id="四、最终结论"><a href="#四、最终结论" class="headerlink" title="四、最终结论"></a>四、最终结论</h2><p>四个命题的判断结果为：</p>
+<ul>
+<li>① 正确：可导必连续；</li>
+<li>② 正确：左右导数分别存在可推出左右连续；</li>
+<li>③ 错误：附近左右导函数极限不能约束点值；</li>
+<li>④ 错误：导函数的双侧极限同样不能约束点值。</li>
+</ul>
+<p>正确命题共有</p>
+<p>$$<br>\boxed{2}<br>$$</p>
+<p>个，故选</p>
+<p>$$<br>\boxed{\mathrm{B}}.<br>$$</p>
+<h2 id="易错点总结"><a href="#易错点总结" class="headerlink" title="易错点总结"></a>易错点总结</h2><h3 id="易错点-1：混淆左右导数与左右导函数极限"><a href="#易错点-1：混淆左右导数与左右导函数极限" class="headerlink" title="易错点 1：混淆左右导数与左右导函数极限"></a>易错点 1：混淆左右导数与左右导函数极限</h3><p>左右导数是</p>
+<p>$$<br>f’<em>\pm(x_0)<br>&#x3D;\lim</em>{x\to x_0^\pm}\frac{f(x)-f(x_0)}{x-x_0},<br>$$</p>
+<p>其中直接出现了 $f(x_0)$。而左右导函数极限是</p>
+<p>$$<br>\lim_{x\to x_0^\pm}f’(x),<br>$$</p>
+<p>它只考察 $x_0$ 附近各点的导数。两者不是同一个概念。</p>
+<h3 id="易错点-2：认为导函数极限存在就能补上点值"><a href="#易错点-2：认为导函数极限存在就能补上点值" class="headerlink" title="易错点 2：认为导函数极限存在就能补上点值"></a>易错点 2：认为导函数极限存在就能补上点值</h3><p>即使 $f’(x)$ 在 $x_0$ 附近非常稳定，也可以单独改变 $f(x_0)$，而不影响去心邻域中的导数。导函数极限因此不能自动保证函数在该点连续。</p>
+<div class="math-daily-note math-daily-note--summary">
+点上的导数会管到点值；附近导数的极限只管斜率。正确的是 ①、②，共 2 个。
+</div>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://SteinsGateSg.github.io">栗悟饭与龟波気功</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://steinsgatesg.github.io/math-daily/003/">https://steinsgatesg.github.io/math-daily/003/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://SteinsGateSg.github.io" target="_blank">栗悟饭与龟波気功</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8F%AF%E5%AF%BC/">可导</a><a class="post-meta__tags" href="/tags/%E5%B7%A6%E5%8F%B3%E5%AF%BC%E6%95%B0/">左右导数</a><a class="post-meta__tags" href="/tags/%E8%BF%9E%E7%BB%AD%E6%80%A7/">连续性</a></div><div class="post-share"><div class="social-share" data-image="/image/sg.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width no-desc" href="/math-daily/002/" title="考研数学每日一题 002：导数为正与局部单调性的关系"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">考研数学每日一题 002：导数为正与局部单调性的关系</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related no-desc" href="/math-daily/001/" title="考研数学每日一题 001：复合极限与可导关系"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2026-07-30</div><div class="info-item-2">考研数学每日一题 001：复合极限与可导关系</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/image/sg.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">栗悟饭与龟波気功</div><div class="author-info-description">记录学习日常</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">7</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SteinsGateSg"><i class="fab fa-github"></i><span>GitHub</span></a></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AD%94%E6%A1%88"><span class="toc-number">2.</span> <span class="toc-text">答案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%80%9D%E8%B7%AF"><span class="toc-number">3.</span> <span class="toc-text">判断思路</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">3.1.</span> <span class="toc-text">哪些导数信息能保证 x₀ 处连续？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%8F%AF%E5%AF%BC%E4%B8%BA%E4%BB%80%E4%B9%88%E8%83%BD%E6%8E%A8%E5%87%BA%E8%BF%9E%E7%BB%AD"><span class="toc-number">4.</span> <span class="toc-text">一、可导为什么能推出连续</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%B7%A6%E5%8F%B3%E5%AF%BC%E6%95%B0%E5%AD%98%E5%9C%A8%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B9%9F%E8%83%BD%E6%8E%A8%E5%87%BA%E8%BF%9E%E7%BB%AD"><span class="toc-number">5.</span> <span class="toc-text">二、左右导数存在为什么也能推出连续</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%99%84%E8%BF%91%E5%AF%BC%E6%95%B0%E7%9A%84%E6%9E%81%E9%99%90%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E8%83%BD%E7%BA%A6%E6%9D%9F%E7%82%B9%E5%80%BC"><span class="toc-number">6.</span> <span class="toc-text">三、附近导数的极限为什么不能约束点值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%9C%80%E7%BB%88%E7%BB%93%E8%AE%BA"><span class="toc-number">7.</span> <span class="toc-text">四、最终结论</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%93%E9%94%99%E7%82%B9%E6%80%BB%E7%BB%93"><span class="toc-number">8.</span> <span class="toc-text">易错点总结</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%93%E9%94%99%E7%82%B9-1%EF%BC%9A%E6%B7%B7%E6%B7%86%E5%B7%A6%E5%8F%B3%E5%AF%BC%E6%95%B0%E4%B8%8E%E5%B7%A6%E5%8F%B3%E5%AF%BC%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%90"><span class="toc-number">8.1.</span> <span class="toc-text">易错点 1：混淆左右导数与左右导函数极限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%93%E9%94%99%E7%82%B9-2%EF%BC%9A%E8%AE%A4%E4%B8%BA%E5%AF%BC%E5%87%BD%E6%95%B0%E6%9E%81%E9%99%90%E5%AD%98%E5%9C%A8%E5%B0%B1%E8%83%BD%E8%A1%A5%E4%B8%8A%E7%82%B9%E5%80%BC"><span class="toc-number">8.2.</span> <span class="toc-text">易错点 2：认为导函数极限存在就能补上点值</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/math-daily/003/" title="考研数学每日一题 003：可导、左右导数与连续">考研数学每日一题 003：可导、左右导数与连续</a><time datetime="2026-08-01T15:50:00.000Z" title="发表于 2026-08-01 23:50:00">2026-08-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/math-daily/002/" title="考研数学每日一题 002：导数为正与局部单调性的关系">考研数学每日一题 002：导数为正与局部单调性的关系</a><time datetime="2026-07-31T15:30:00.000Z" title="发表于 2026-07-31 23:30:00">2026-07-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/math-daily/001/" title="考研数学每日一题 001：复合极限与可导关系">考研数学每日一题 001：复合极限与可导关系</a><time datetime="2026-07-30T15:30:00.000Z" title="发表于 2026-07-30 23:30:00">2026-07-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/daily/001-abc441-e/" title="每日一题 001 · ABC441 E：A &gt; B substring"><img src="/image/daily-practice-storybook.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="每日一题 001 · ABC441 E：A &gt; B substring"/></a><div class="content"><a class="title" href="/daily/001-abc441-e/" title="每日一题 001 · ABC441 E：A &gt; B substring">每日一题 001 · ABC441 E：A &gt; B substring</a><time datetime="2026-06-16T14:30:00.000Z" title="发表于 2026-06-16 22:30:00">2026-06-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2026/04/12/%E7%89%9B%E5%AE%A2%E5%91%A8%E8%B5%9BRound139/" title="牛客周赛Round139"><img src="/image/algorithm-contest-storybook.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="牛客周赛Round139"/></a><div class="content"><a class="title" href="/2026/04/12/%E7%89%9B%E5%AE%A2%E5%91%A8%E8%B5%9BRound139/" title="牛客周赛Round139">牛客周赛Round139</a><time datetime="2026-04-12T12:52:46.000Z" title="发表于 2026-04-12 20:52:46">2026-04-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2026 By 栗悟饭与龟波気功</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.3.5</a></div><div class="footer_custom_text">在云海与代码之间，缓慢而坚定地前行。</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>(() => {
+  const loadMathjax = () => {
+    if (!window.MathJax) {
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          tags: 'none',
+        },
+        chtml: {
+          scale: 1.1
+        },
+        options: {
+          enableMenu: true,
+          renderActions: {
+            findScript: [10, doc => {
+              for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+                const display = !!node.type.match(/; *mode=display/)
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+                const text = document.createTextNode('')
+                node.parentNode.replaceChild(text, node)
+                math.start = {node: text, delim: '', n: 0}
+                math.end = {node: text, delim: '', n: 0}
+                doc.math.push(math)
+              }
+            }, '']
+          }
+        }
+      }
+
+      const script = document.createElement('script')
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+      script.id = 'MathJax-script'
+      script.async = true
+      document.head.appendChild(script)
+    } else {
+      MathJax.startup.document.state(0)
+      MathJax.texReset()
+      MathJax.typesetPromise()
+    }
+  }
+
+  btf.addGlobalFn('encrypt', loadMathjax, 'mathjax')
+  window.pjax ? loadMathjax() : window.addEventListener('load', loadMathjax)
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
